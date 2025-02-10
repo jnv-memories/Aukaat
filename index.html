@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>loda le le !! Baap Baap hota hai.</title>
+    <title>Photo Album</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,6 +24,7 @@
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s;
+            cursor: pointer;
         }
         .photo:hover {
             transform: scale(1.05);
@@ -34,38 +35,73 @@
             object-fit: cover;
             border-radius: 10px;
         }
+        .fullscreen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .fullscreen img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <h1>Someone hurt my ego so I did this</h1>
+    <h1>My Photo Album</h1>
     <div class="album">
-        <div class="photo"><img src="1.jpg" alt="Photo 1"></div>
-        <div class="photo"><img src="2.jpg" alt="Photo 2"></div>
-        <div class="photo"><img src="3.jpg" alt="Photo 3"></div>
-        <div class="photo"><img src="4.jpg" alt="Photo 4"></div>
-        <div class="photo"><img src="5.jpg" alt="Photo 5"></div>
-        <div class="photo"><img src="6.jpg" alt="Photo 6"></div>
-        <div class="photo"><img src="7.jpg" alt="Photo 7"></div>
-        <div class="photo"><img src="8.jpg" alt="Photo 8"></div>
-        <div class="photo"><img src="9.jpg" alt="Photo 9"></div>
-        <div class="photo"><img src="10.jpg" alt="Photo 10"></div>
-        <div class="photo"><img src="11.jpg" alt="Photo 11"></div>
-        <div class="photo"><img src="12.jpg" alt="Photo 12"></div>
-        <div class="photo"><img src="13.jpg" alt="Photo 13"></div>
-        <div class="photo"><img src="14.jpg" alt="Photo 14"></div>
-        <div class="photo"><img src="15.jpg" alt="Photo 15"></div>
-        <div class="photo"><img src="16.jpg" alt="Photo 16"></div>
-        <div class="photo"><img src="17.jpg" alt="Photo 17"></div>
-        <div class="photo"><img src="18.jpg" alt="Photo 18"></div>
-        <div class="photo"><img src="19.jpg" alt="Photo 19"></div>
-        <div class="photo"><img src="20.jpg" alt="Photo 20"></div>
-        <div class="photo"><img src="21.jpg" alt="Photo 21"></div>
-        <div class="photo"><img src="22.jpg" alt="Photo 22"></div>
-        <div class="photo"><img src="23.jpg" alt="Photo 23"></div>
-        <div class="photo"><img src="24.jpg" alt="Photo 24"></div>
-        <div class="photo"><img src="25.jpg" alt="Photo 25"></div>
-        <div class="photo"><img src="26.jpg" alt="Photo 26"></div>
+        <div class="photo" onclick="openFullscreen('1.jpg')"><img src="1.jpg" alt="Photo 1"></div>
+        <div class="photo" onclick="openFullscreen('2.jpg')"><img src="2.jpg" alt="Photo 2"></div>
+        <div class="photo" onclick="openFullscreen('3.jpg')"><img src="3.jpg" alt="Photo 3"></div>
+        <div class="photo" onclick="openFullscreen('4.jpg')"><img src="4.jpg" alt="Photo 4"></div>
+        <div class="photo" onclick="openFullscreen('5.jpg')"><img src="5.jpg" alt="Photo 5"></div>
+        <div class="photo" onclick="openFullscreen('6.jpg')"><img src="6.jpg" alt="Photo 6"></div>
+        <div class="photo" onclick="openFullscreen('7.jpg')"><img src="7.jpg" alt="Photo 7"></div>
+        <div class="photo" onclick="openFullscreen('8.jpg')"><img src="8.jpg" alt="Photo 8"></div>
+        <div class="photo" onclick="openFullscreen('9.jpg')"><img src="9.jpg" alt="Photo 9"></div>
+        <div class="photo" onclick="openFullscreen('10.jpg')"><img src="10.jpg" alt="Photo 10"></div>
+        <div class="photo" onclick="openFullscreen('11.jpg')"><img src="11.jpg" alt="Photo 11"></div>
+        <div class="photo" onclick="openFullscreen('12.jpg')"><img src="12.jpg" alt="Photo 12"></div>
+        <div class="photo" onclick="openFullscreen('13.jpg')"><img src="13.jpg" alt="Photo 13"></div>
+        <div class="photo" onclick="openFullscreen('14.jpg')"><img src="14.jpg" alt="Photo 14"></div>
+        <div class="photo" onclick="openFullscreen('15.jpg')"><img src="15.jpg" alt="Photo 15"></div>
+        <div class="photo" onclick="openFullscreen('16.jpg')"><img src="16.jpg" alt="Photo 16"></div>
+        <div class="photo" onclick="openFullscreen('17.jpg')"><img src="17.jpg" alt="Photo 17"></div>
+        <div class="photo" onclick="openFullscreen('18.jpg')"><img src="18.jpg" alt="Photo 18"></div>
+        <div class="photo" onclick="openFullscreen('19.jpg')"><img src="19.jpg" alt="Photo 19"></div>
+        <div class="photo" onclick="openFullscreen('20.jpg')"><img src="20.jpg" alt="Photo 20"></div>
+        <div class="photo" onclick="openFullscreen('21.jpg')"><img src="21.jpg" alt="Photo 21"></div>
+        <div class="photo" onclick="openFullscreen('22.jpg')"><img src="22.jpg" alt="Photo 22"></div>
+        <div class="photo" onclick="openFullscreen('23.jpg')"><img src="23.jpg" alt="Photo 23"></div>
+        <div class="photo" onclick="openFullscreen('24.jpg')"><img src="24.jpg" alt="Photo 24"></div>
+        <div class="photo" onclick="openFullscreen('25.jpg')"><img src="25.jpg" alt="Photo 25"></div>
+        <div class="photo" onclick="openFullscreen('26.jpg')"><img src="26.jpg" alt="Photo 26"></div>
     </div>
-    <h3>Baap baap hota hai!!</h3>
+    <div class="fullscreen" id="fullscreen" onclick="closeFullscreen()">
+        <span class="close">&times;</span>
+        <img id="fullscreen-img" src="">
+    </div>
+    <script>
+        function openFullscreen(src) {
+            document.getElementById('fullscreen-img').src = src;
+            document.getElementById('fullscreen').style.display = 'flex';
+        }
+        function closeFullscreen() {
+            document.getElementById('fullscreen').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
