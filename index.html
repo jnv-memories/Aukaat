@@ -57,6 +57,36 @@
             font-size: 30px;
             color: white;
             cursor: pointer;
+
+         /* Custom Alert Box */
+        .custom-alert {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            z-index: 9999;
+        }
+        .custom-alert p {
+            font-size: 16px;
+            margin: 0 0 10px;
+        }
+        .custom-alert button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .custom-alert button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -102,6 +132,19 @@
         function closeFullscreen() {
             document.getElementById('fullscreen').style.display = 'none';
         }
+        // Show custom alert box
+        function showCustomAlert() {
+            document.getElementById('custom-alert').style.display = 'block';
+        }
+
+        // Close custom alert box
+        function closeCustomAlert() {
+            document.getElementById('custom-alert').style.display = 'none';
+        }
+
+        // Example call to display the alert on page load
+        window.onload = function() {
+            setTimeout(showCustomAlert, 1000); // Show alert after 1 second
     </script>
     <h4>To remove this I want one Bun Anda Party ^,^ </h4>
 </body>
