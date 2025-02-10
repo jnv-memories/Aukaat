@@ -58,6 +58,17 @@
             color: white;
             cursor: pointer;
         }
+        /* Dark Overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9998;
+        }
 
          /* Custom Alert Box */
         .custom-alert {
@@ -125,9 +136,10 @@
         <span class="close">&times;</span>
         <img id="fullscreen-img" src="">
     </div>
-    <!-- Custom Alert Box -->
+   <!-- Custom Alert Box and Overlay -->
+    <div class="overlay" id="overlay"></div>
     <div class="custom-alert" id="custom-alert">
-        <p>This is your custom alert box!</p>
+        <p>Muh me le le</p>
         <button onclick="closeCustomAlert()">OK</button>
     </div>
     <script>
@@ -138,19 +150,16 @@
         function closeFullscreen() {
             document.getElementById('fullscreen').style.display = 'none';
         }
-        // Show custom alert box
-        function showCustomAlert() {
+        // Show custom alert box immediately on page load
+        window.onload = function () {
             document.getElementById('custom-alert').style.display = 'block';
-        }
+            document.getElementById('overlay').style.display = 'block';
+        };
 
-        // Close custom alert box
+        // Close custom alert box and hide overlay
         function closeCustomAlert() {
             document.getElementById('custom-alert').style.display = 'none';
-        }
-
-        // Example call to display the alert on page load
-        window.onload = function() {
-            setTimeout(showCustomAlert, 1000); // Show alert after 1 second
+            document.getElementById('overlay').style.display = 'none';
         }
     </script>
     <h4>To remove this I want one Bun Anda Party ^,^ </h4>
